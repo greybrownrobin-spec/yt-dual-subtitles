@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dual Subtitles for YouTube™ — translation above, original below</title>
+<meta name="description" content="A Chrome extension that shows two subtitle languages on a YouTube video at once: the translation above the picture and the original below, so neither line covers the other. Free, no account, no tracking.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f766e'/><rect x='7' y='10' width='18' height='3.4' rx='1.7' fill='%236ee7c2'/><rect x='7' y='18.6' width='18' height='3.4' rx='1.7' fill='%23fff'/></svg>">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#15181d; --mu:#5b6472; --ac:#0f766e; --ac-soft:#e7f6ef;
+    --bd:#e4e6eb; --card:#fafbfc; --code:#f3f4f6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0f1216; --fg:#e9edf2; --mu:#9aa5b1; --ac:#3fbfa4; --ac-soft:#10251f;
+           --bd:#242a31; --card:#151a20; --code:#171d24; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  a{color:var(--ac)}
+  header{padding:72px 0 44px;border-bottom:1px solid var(--bd)}
+  h1{font-size:34px;line-height:1.25;margin:0 0 14px;letter-spacing:-.02em}
+  .lede{font-size:19px;color:var(--mu);margin:0 0 28px;max-width:60ch}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .btn{display:inline-block;padding:11px 18px;border-radius:8px;text-decoration:none;
+       font-weight:600;font-size:15px;border:1px solid var(--bd);color:var(--fg);background:var(--card)}
+  .btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
+  .meta{font-size:13px;color:var(--mu);margin-top:14px}
+  h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);
+     margin:52px 0 16px;font-weight:600}
+  h3{font-size:17px;margin:26px 0 6px}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px;padding-left:20px}
+  li{margin:7px 0}
+  .card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:18px 20px;margin:16px 0}
+  .fig{border:1px solid var(--bd);border-radius:10px;overflow:hidden;margin:18px 0;background:#000}
+  .fig .frame{position:relative;aspect-ratio:16/9;display:flex;flex-direction:column;
+              justify-content:space-between;padding:14px;background:
+              linear-gradient(160deg,#1b2430,#0b0f14)}
+  .fig .line{align-self:center;max-width:88%;text-align:center;padding:5px 10px;border-radius:5px;
+             background:rgba(0,0,0,.55);font-size:14px;line-height:1.4}
+  .fig .t{color:#6ee7c2}
+  .fig .o{color:#fff}
+  .fig figcaption{font-size:13px;color:var(--mu);padding:10px 14px;background:var(--card)}
+  dl{margin:0}
+  dt{font-weight:600;margin:22px 0 4px}
+  dd{margin:0;color:var(--mu)}
+  code{background:var(--code);padding:1px 6px;border-radius:4px;font-size:14px}
+  footer{margin:64px 0 48px;padding-top:22px;border-top:1px solid var(--bd);
+         font-size:13px;color:var(--mu)}
+  .langs{font-size:14px;color:var(--mu)}
+  @media (max-width:560px){ header{padding:48px 0 32px} h1{font-size:27px} .lede{font-size:17px} }
+</style>
+
+<header>
+  <div class="wrap">
+    <h1>Two subtitle languages at once — one above the video, one below.</h1>
+    <p class="lede">
+      The translation sits above the picture, the original stays at the bottom.
+      Neither line covers the other, and neither covers what you are watching.
+    </p>
+    <div class="cta">
+      <a class="btn p" href="https://chromewebstore.google.com/detail/bhdmpbfdcddcjcbkmbeaioikjijbjgbp">Add to Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/npmeemjbfhkofkdmjmglkflieonaggfb">Get it for Edge</a>
+    </div>
+    <p class="meta">Free · No account · No API key · Nothing is sent anywhere</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h2>What it looks like</h2>
+
+  <figure class="fig">
+    <div class="frame">
+      <div class="line t">그건 제가 오래 생각해 온 질문이었습니다.</div>
+      <div class="line o">That was a question I had been thinking about for a long time.</div>
+    </div>
+    <figcaption>Split layout — translation above the picture, original below. Both stay clear of the player controls.</figcaption>
+  </figure>
+
+  <p>
+    If you would rather keep them together, one setting stacks both lines at the bottom
+    in the usual place. The choice is remembered, so the next video opens the way you left it.
+  </p>
+
+  <h2>What it does</h2>
+  <ul>
+    <li><strong>Two subtitle lines at once</strong> — the captions the video already carries, plus YouTube's translation of them.</li>
+    <li><strong>Split or stacked.</strong> Translation above the picture and original below, or both together at the bottom.</li>
+    <li><strong>Tune the look.</strong> Text size, separate colours for the original and the translation, backdrop opacity, and how far the lines sit from the bottom — so they never clash with the player controls.</li>
+    <li><strong>Your settings stay put.</strong> Languages, layout, size and colours are remembered between videos and between sessions.</li>
+    <li><strong>It leaves YouTube's own captions alone.</strong> No doubled lines, and turning the extension off gives you the player exactly as it was.</li>
+    <li><strong>Nothing to set up.</strong> Pick a language. That is the whole configuration.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <p>
+    The subtitles come from the YouTube page you are already watching, and YouTube itself
+    produces the translation. The extension reads those two tracks, lines them up sentence
+    by sentence, and draws them over the player.
+  </p>
+  <p>
+    There is no server in the middle. No account, no API key, no analytics, no third-party
+    translation service. Your settings live in your own browser and nowhere else.
+  </p>
+
+  <h2 id="privacy">Privacy</h2>
+  <div class="card">
+    <p><strong>This extension collects nothing.</strong></p>
+    <ul>
+      <li>No personal information, browsing history, or usage data is collected.</li>
+      <li>No data is transmitted to the developer or to any third party. There is no server.</li>
+      <li>Your preferences (languages, layout, text size, colours) are stored locally with the
+          browser's own <code>storage</code> API and never leave the device.</li>
+      <li>The extension runs only on <code>youtube.com</code> watch pages. It requests no access to any other site.</li>
+      <li>No advertising, no tracking pixels, no remote code.</li>
+    </ul>
+    <p style="margin-bottom:0">
+      Because nothing is collected, there is nothing to request, correct, or delete.
+      Removing the extension removes its stored settings with it.
+    </p>
+  </div>
+
+  <h2>Questions</h2>
+  <dl>
+    <dt>Does it work on every video?</dt>
+    <dd>A video has to have subtitles of its own. When one doesn't, the extension says so in the popup rather than failing quietly.</dd>
+
+    <dt>Who does the translating?</dt>
+    <dd>YouTube does. The extension asks YouTube for the translated track it already offers, so translation quality is YouTube's, not ours. Auto-generated captions translate less accurately than captions written by the person who uploaded the video.</dd>
+
+    <dt>Does it slow the player down?</dt>
+    <dd>The subtitle tracks are fetched once per video and rendered locally, so playback is unaffected.</dd>
+
+    <dt>Can I turn it off for a while?</dt>
+    <dd>Yes — the switch at the top of the popup. YouTube's own captions behave normally again the moment it is off.</dd>
+
+    <dt>Is it free? Will it stay free?</dt>
+    <dd>Every feature is free today. If a paid tier is ever added, people who installed before that date keep what they have.</dd>
+
+    <dt>Does it work on Netflix or other sites?</dt>
+    <dd>No. It is built for YouTube watch pages only, and it asks for no permission to any other site.</dd>
+  </dl>
+
+  <h2>Languages</h2>
+  <p class="langs">
+    The interface is available in English, 한국어, 中文 (简体 / 繁體), Português,
+    Español, Türkçe and Tiếng Việt. Subtitle languages themselves are whatever YouTube
+    offers for the video you are watching.
+  </p>
+
+  <h2>Feedback</h2>
+  <p>
+    Bug reports and requests are welcome through the <strong>Support</strong> tab on the
+    Chrome Web Store listing. If something looks wrong on a specific video, the video's
+    link helps more than anything else.
+  </p>
+
+</main>
+
+<footer class="wrap">
+  <p>
+    Dual Subtitles for YouTube™ — published by Greybrown.
+    <a href="https://chromewebstore.google.com/detail/bhdmpbfdcddcjcbkmbeaioikjijbjgbp">Chrome Web Store</a> ·
+    <a href="https://microsoftedge.microsoft.com/addons/detail/npmeemjbfhkofkdmjmglkflieonaggfb">Microsoft Edge Add-ons</a>
+  </p>
+  <p>
+    Not affiliated with, endorsed by or sponsored by YouTube or Google.
+    YouTube is a trademark of Google LLC.
+  </p>
+</footer>
+</html>
