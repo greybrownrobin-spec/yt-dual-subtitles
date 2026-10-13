@@ -8,6 +8,8 @@
 <link rel="alternate" hreflang="en" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/dual-subtitles-not-working/">
 <link rel="alternate" hreflang="ko" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/ko/dual-subtitles-not-working/">
 <link rel="alternate" hreflang="x-default" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/dual-subtitles-not-working/">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HX5TEVB06K"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HX5TEVB06K');</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f766e'/><rect x='7' y='10' width='18' height='3.4' rx='1.7' fill='%236ee7c2'/><rect x='7' y='18.6' width='18' height='3.4' rx='1.7' fill='%23fff'/></svg>">
 <style>
 :root{--bg:#ffffff;--fg:#15181d;--mu:#5b6472;--ac:#0f766e;--ac-soft:#e7f6ef;--bd:#e4e6eb;--card:#fafbfc;--code:#f3f4f6}
@@ -27,6 +29,7 @@ h1{font-size:34px;line-height:1.25;margin:0 0 14px;letter-spacing:-.02em}
 .cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
 .btn{display:inline-block;padding:11px 18px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--bd);color:var(--fg);background:var(--card)}
 .btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
+.eyebrow{font-size:16px;font-weight:700;color:var(--ac);margin:0 0 10px;letter-spacing:-.01em}
 .meta{font-size:13px;color:var(--mu);margin-top:14px}
 h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin:52px 0 16px;font-weight:600}
 article h2{font-size:21px;text-transform:none;letter-spacing:-.01em;color:var(--fg);margin:44px 0 12px}
@@ -36,6 +39,14 @@ li{margin:7px 0}
 .lead{font-size:18px}
 .checked{font-size:13px;color:var(--mu);margin:0 0 22px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:18px 20px;margin:16px 0}
+.shot{margin:18px 0}.shot img{display:block;width:100%;height:auto;border:1px solid var(--bd);border-radius:10px}
+.shot+.shot{margin-top:12px}
+.cap{font-size:14px;color:var(--mu);margin:10px 0 28px}
+.video{position:relative;display:block;margin:28px 0 22px;border-radius:10px;overflow:hidden;border:1px solid var(--bd);aspect-ratio:16/9;background:#000}
+.video img,.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.video .play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:rgba(15,118,110,.92);box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.video .play::after{content:"";position:absolute;left:30px;top:22px;border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent #fff}
+.video:hover .play{background:#0f766e}
 .fig{border:1px solid var(--bd);border-radius:10px;overflow:hidden;margin:18px 0;background:#000}
 .fig .frame{position:relative;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between;padding:14px;background:linear-gradient(160deg,#1b2430,#0b0f14)}
 .fig .line{align-self:center;max-width:88%;text-align:center;padding:5px 10px;border-radius:5px;background:rgba(0,0,0,.55);font-size:14px;line-height:1.4}
@@ -48,6 +59,7 @@ footer{margin:72px auto 48px;padding-top:22px;border-top:1px solid var(--bd);fon
 :lang(ko){word-break:keep-all;overflow-wrap:anywhere}
 @media (max-width:560px){header{padding:32px 0 32px}h1{font-size:27px}.lede{font-size:17px}}
 </style>
+<body data-page="not-working">
 
 <nav class="lang wrap"><b>English</b><a href="../ko/dual-subtitles-not-working/" hreflang="ko" lang="ko">한국어</a></nav>
 <main class="wrap">
@@ -108,4 +120,13 @@ footer{margin:72px auto 48px;padding-top:22px;border-top:1px solid var(--bd);fon
   <p><a href="../">Dual Subtitles Plus for YouTube™</a> — Greybrown</p>
   <p>Not affiliated with, endorsed by or sponsored by YouTube or Google. YouTube is a trademark of Google LLC.</p>
 </footer>
+<script>
+function dsTrack(n,p){if(window.gtag){p=p||{};p.page_lang=document.documentElement.lang;p.page_type=document.body.dataset.page;p.transport_type='beacon';gtag('event',n,p);}}
+document.addEventListener('click',function(ev){
+var s=ev.target.closest('a[href*="chromewebstore.google.com"]');if(s){dsTrack('store_click');return;}
+var a=ev.target.closest('a[data-yt]');if(!a)return;ev.preventDefault();dsTrack('video_play',{video_id:a.dataset.yt});
+var box=document.createElement('div');box.className='video';var f=document.createElement('iframe');
+f.src='https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';
+f.allowFullscreen=true;f.title=a.getAttribute('aria-label')||'Video';box.appendChild(f);a.replaceWith(box);});
+</script>
 </html>
