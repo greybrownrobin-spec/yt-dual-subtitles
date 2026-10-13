@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sous-titres doubles Plus pour YouTube™</title>
+<meta name="description" content="Deux langues de sous-titres à la fois sur YouTube : traduction au-dessus, original en dessous. Vos langues restent réglées.">
+<link rel="canonical" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/fr/">
+<link rel="alternate" hreflang="en" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/">
+<link rel="alternate" hreflang="ko" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/ko/">
+<link rel="alternate" hreflang="ja" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/ja/">
+<link rel="alternate" hreflang="zh-CN" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/zh-cn/">
+<link rel="alternate" hreflang="zh-TW" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/zh-tw/">
+<link rel="alternate" hreflang="es" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/pt-br/">
+<link rel="alternate" hreflang="fr" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/fr/">
+<link rel="alternate" hreflang="tr" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/tr/">
+<link rel="alternate" hreflang="vi" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/vi/">
+<link rel="alternate" hreflang="ar" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/ar/">
+<link rel="alternate" hreflang="x-default" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f766e'/><rect x='7' y='10' width='18' height='3.4' rx='1.7' fill='%236ee7c2'/><rect x='7' y='18.6' width='18' height='3.4' rx='1.7' fill='%23fff'/></svg>">
+<style>
+:root{--bg:#ffffff;--fg:#15181d;--mu:#5b6472;--ac:#0f766e;--ac-soft:#e7f6ef;--bd:#e4e6eb;--card:#fafbfc;--code:#f3f4f6}
+@media (prefers-color-scheme: dark){:root{--bg:#0f1216;--fg:#e9edf2;--mu:#9aa5b1;--ac:#3fbfa4;--ac-soft:#10251f;--bd:#242a31;--card:#151a20;--code:#171d24}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Noto Sans","Noto Sans KR","Noto Sans JP","Noto Sans SC","Noto Sans Arabic",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+a{color:var(--ac)}
+nav.lang{font-size:13px;color:var(--mu);padding:14px 20px 0;line-height:1.9;display:flex;flex-wrap:wrap;column-gap:14px}
+nav.lang a,nav.lang b{white-space:nowrap}
+nav.lang a{color:var(--mu);text-decoration:none}
+nav.lang a:hover{color:var(--ac);text-decoration:underline}
+nav.lang b{color:var(--fg);font-weight:600}
+header{padding:48px 0 44px;border-bottom:1px solid var(--bd)}
+h1{font-size:34px;line-height:1.25;margin:0 0 14px;letter-spacing:-.02em}
+.lede{font-size:19px;color:var(--mu);margin:0 0 28px;max-width:60ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
+.btn{display:inline-block;padding:11px 18px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--bd);color:var(--fg);background:var(--card)}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
+.meta{font-size:13px;color:var(--mu);margin-top:14px}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin:52px 0 16px;font-weight:600}
+article h2{font-size:21px;text-transform:none;letter-spacing:-.01em;color:var(--fg);margin:44px 0 12px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 14px;padding-inline-start:22px}
+li{margin:7px 0}
+.lead{font-size:18px}
+.checked{font-size:13px;color:var(--mu);margin:0 0 22px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:18px 20px;margin:16px 0}
+.fig{border:1px solid var(--bd);border-radius:10px;overflow:hidden;margin:18px 0;background:#000}
+.fig .frame{position:relative;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between;padding:14px;background:linear-gradient(160deg,#1b2430,#0b0f14)}
+.fig .line{align-self:center;max-width:88%;text-align:center;padding:5px 10px;border-radius:5px;background:rgba(0,0,0,.55);font-size:14px;line-height:1.4}
+.fig .t{color:#6ee7c2}.fig .o{color:#fff}
+.fig figcaption{font-size:13px;color:var(--mu);padding:10px 14px;background:var(--card)}
+dl{margin:0}dt{font-weight:600;margin:22px 0 4px}dd{margin:0;color:var(--mu)}
+code{background:var(--code);padding:1px 6px;border-radius:4px;font-size:14px}
+footer{margin:72px auto 48px;padding-top:22px;border-top:1px solid var(--bd);font-size:13px;color:var(--mu)}
+.langs{font-size:14px;color:var(--mu)}
+:lang(ko){word-break:keep-all;overflow-wrap:anywhere}
+@media (max-width:560px){header{padding:32px 0 32px}h1{font-size:27px}.lede{font-size:17px}}
+</style>
+
+<nav class="lang wrap"><a href="../" hreflang="en" lang="en">English</a><a href="../ko/" hreflang="ko" lang="ko">한국어</a><a href="../ja/" hreflang="ja" lang="ja">日本語</a><a href="../zh-cn/" hreflang="zh-CN" lang="zh-CN">中文（简体）</a><a href="../zh-tw/" hreflang="zh-TW" lang="zh-TW">中文（繁體）</a><a href="../es/" hreflang="es" lang="es">Español</a><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><b>Français</b><a href="../tr/" hreflang="tr" lang="tr">Türkçe</a><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a><a href="../ar/" hreflang="ar" lang="ar">العربية</a></nav>
+<header>
+  <div class="wrap">
+    <h1>Sous-titres doubles Plus pour YouTube™</h1>
+    <p class="lede">Deux langues de sous-titres à l’écran en même temps : la traduction au-dessus de la vidéo, l’original en dessous. Aucune ligne ne cache l’autre, et aucune ne cache l’image.</p>
+    <div class="cta">
+      <a class="btn p" href="https://chromewebstore.google.com/detail/bhdmpbfdcddcjcbkmbeaioikjijbjgbp?utm_source=site_fr&amp;utm_medium=site&amp;utm_campaign=intro">Chrome Web Store</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <figure class="fig">
+    <div class="frame">
+      <div class="line t" lang="ko" dir="ltr">그건 제가 오래 생각해 온 질문이었습니다.</div>
+      <div class="line o" lang="en" dir="ltr">That was a question I had been thinking about for a long time.</div>
+    </div>
+  </figure>
+
+  <h2>CE QUE FAIT L’EXTENSION</h2>
+  <ul>
+    <li>Deux lignes de sous-titres à la fois — les sous-titres de la vidéo, plus leur traduction par YouTube.</li>
+    <li>Séparez-les : la traduction au-dessus de l’image, l’original en dessous. Ou les deux en bas.</li>
+    <li>Réglez l’apparence : taille du texte, couleur distincte pour l’original et la traduction, opacité du fond et distance depuis le bas — pour ne jamais gêner les commandes du lecteur.</li>
+    <li>Vos langues, la disposition, la taille du texte et les couleurs sont mémorisées. La vidéo suivante s’ouvre comme vous l’avez laissée.</li>
+    <li>Ne touche pas aux sous-titres de YouTube. Pas de lignes en double.</li>
+    <li>Sans compte, sans clé API, sans autre réglage que le choix de la langue.</li>
+  </ul>
+
+  <h2>COMMENT ÇA MARCHE</h2>
+  <p>Les sous-titres sont lus sur la page YouTube que vous regardez déjà, et traduits par YouTube lui-même. Rien n’est envoyé nulle part. Il n’y a ni serveur, ni statistiques, ni compte — vos réglages restent uniquement dans votre navigateur.</p>
+
+  <h2>BON À SAVOIR</h2>
+  <ul>
+    <li>La vidéo doit avoir des sous-titres. Si elle n’en a pas, l’extension vous le dit au lieu d’échouer en silence.</li>
+    <li>La qualité de la traduction vient de YouTube, pas de cette extension. Les sous-titres générés automatiquement se traduisent moins bien que ceux écrits par l’auteur de la vidéo.</li>
+    <li>Fonctionne sur les pages de lecture de youtube.com.</li>
+    <li>Interface en Français, English, 한국어, 中文 (简体 / 繁體), Português, Español, Türkçe, Tiếng Việt, 日本語 et العربية.</li>
+  </ul>
+
+</main>
+
+<footer class="wrap">
+  <p>
+    Sous-titres doubles Plus pour YouTube™ — Greybrown ·
+    <a href="https://chromewebstore.google.com/detail/bhdmpbfdcddcjcbkmbeaioikjijbjgbp?utm_source=site_fr&amp;utm_medium=site&amp;utm_campaign=intro">Chrome Web Store</a> ·
+    <a href="../#privacy" hreflang="en">Confidentialité</a>
+  </p>
+  <p>Non affiliée à YouTube ou Google, ni approuvée ou parrainée par eux. YouTube est une marque de Google LLC.</p>
+</footer>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN" dir="ltr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube™ 双语字幕 Plus — 两种语言同时显示</title>
+<meta name="description" content="在 YouTube 上同时显示两种语言的字幕。译文在画面上方，原文在下方，设置在视频之间保持不变。">
+<link rel="canonical" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/zh-cn/">
+<link rel="alternate" hreflang="en" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/">
+<link rel="alternate" hreflang="ko" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/ko/">
+<link rel="alternate" hreflang="ja" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/ja/">
+<link rel="alternate" hreflang="zh-CN" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/zh-cn/">
+<link rel="alternate" hreflang="zh-TW" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/zh-tw/">
+<link rel="alternate" hreflang="es" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/pt-br/">
+<link rel="alternate" hreflang="fr" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/fr/">
+<link rel="alternate" hreflang="tr" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/tr/">
+<link rel="alternate" hreflang="vi" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/vi/">
+<link rel="alternate" hreflang="ar" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/ar/">
+<link rel="alternate" hreflang="x-default" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f766e'/><rect x='7' y='10' width='18' height='3.4' rx='1.7' fill='%236ee7c2'/><rect x='7' y='18.6' width='18' height='3.4' rx='1.7' fill='%23fff'/></svg>">
+<style>
+:root{--bg:#ffffff;--fg:#15181d;--mu:#5b6472;--ac:#0f766e;--ac-soft:#e7f6ef;--bd:#e4e6eb;--card:#fafbfc;--code:#f3f4f6}
+@media (prefers-color-scheme: dark){:root{--bg:#0f1216;--fg:#e9edf2;--mu:#9aa5b1;--ac:#3fbfa4;--ac-soft:#10251f;--bd:#242a31;--card:#151a20;--code:#171d24}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Noto Sans","Noto Sans KR","Noto Sans JP","Noto Sans SC","Noto Sans Arabic",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+a{color:var(--ac)}
+nav.lang{font-size:13px;color:var(--mu);padding:14px 20px 0;line-height:1.9;display:flex;flex-wrap:wrap;column-gap:14px}
+nav.lang a,nav.lang b{white-space:nowrap}
+nav.lang a{color:var(--mu);text-decoration:none}
+nav.lang a:hover{color:var(--ac);text-decoration:underline}
+nav.lang b{color:var(--fg);font-weight:600}
+header{padding:48px 0 44px;border-bottom:1px solid var(--bd)}
+h1{font-size:34px;line-height:1.25;margin:0 0 14px;letter-spacing:-.02em}
+.lede{font-size:19px;color:var(--mu);margin:0 0 28px;max-width:60ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
+.btn{display:inline-block;padding:11px 18px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--bd);color:var(--fg);background:var(--card)}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
+.meta{font-size:13px;color:var(--mu);margin-top:14px}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin:52px 0 16px;font-weight:600}
+article h2{font-size:21px;text-transform:none;letter-spacing:-.01em;color:var(--fg);margin:44px 0 12px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 14px;padding-inline-start:22px}
+li{margin:7px 0}
+.lead{font-size:18px}
+.checked{font-size:13px;color:var(--mu);margin:0 0 22px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:18px 20px;margin:16px 0}
+.fig{border:1px solid var(--bd);border-radius:10px;overflow:hidden;margin:18px 0;background:#000}
+.fig .frame{position:relative;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between;padding:14px;background:linear-gradient(160deg,#1b2430,#0b0f14)}
+.fig .line{align-self:center;max-width:88%;text-align:center;padding:5px 10px;border-radius:5px;background:rgba(0,0,0,.55);font-size:14px;line-height:1.4}
+.fig .t{color:#6ee7c2}.fig .o{color:#fff}
+.fig figcaption{font-size:13px;color:var(--mu);padding:10px 14px;background:var(--card)}
+dl{margin:0}dt{font-weight:600;margin:22px 0 4px}dd{margin:0;color:var(--mu)}
+code{background:var(--code);padding:1px 6px;border-radius:4px;font-size:14px}
+footer{margin:72px auto 48px;padding-top:22px;border-top:1px solid var(--bd);font-size:13px;color:var(--mu)}
+.langs{font-size:14px;color:var(--mu)}
+:lang(ko){word-break:keep-all;overflow-wrap:anywhere}
+@media (max-width:560px){header{padding:32px 0 32px}h1{font-size:27px}.lede{font-size:17px}}
+</style>
+
+<nav class="lang wrap"><a href="../" hreflang="en" lang="en">English</a><a href="../ko/" hreflang="ko" lang="ko">한국어</a><a href="../ja/" hreflang="ja" lang="ja">日本語</a><b>中文（简体）</b><a href="../zh-tw/" hreflang="zh-TW" lang="zh-TW">中文（繁體）</a><a href="../es/" hreflang="es" lang="es">Español</a><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="../fr/" hreflang="fr" lang="fr">Français</a><a href="../tr/" hreflang="tr" lang="tr">Türkçe</a><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a><a href="../ar/" hreflang="ar" lang="ar">العربية</a></nav>
+<header>
+  <div class="wrap">
+    <h1>YouTube™ 双语字幕 Plus — 两种语言同时显示</h1>
+    <p class="lede">两种语言的字幕同时显示：译文在视频上方，原文在下方。两行互不遮挡，也不会挡住画面。</p>
+    <div class="cta">
+      <a class="btn p" href="https://chromewebstore.google.com/detail/bhdmpbfdcddcjcbkmbeaioikjijbjgbp?utm_source=site_zh-cn&amp;utm_medium=site&amp;utm_campaign=intro">Chrome Web Store</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <figure class="fig">
+    <div class="frame">
+      <div class="line t" lang="ko" dir="ltr">그건 제가 오래 생각해 온 질문이었습니다.</div>
+      <div class="line o" lang="en" dir="ltr">That was a question I had been thinking about for a long time.</div>
+    </div>
+  </figure>
+
+  <h2>功能</h2>
+  <ul>
+    <li>同时显示两行字幕 —— 视频自带的原文字幕，以及 YouTube 对它的翻译。</li>
+    <li>分开摆放：译文在画面上方，原文在下方；也可以把两行都放在底部。</li>
+    <li>外观可调：字号、原文与译文各自的颜色、背景不透明度，以及距底部的距离 —— 避免字幕被播放器控件遮挡。</li>
+    <li>记住你的语言、布局、字号和颜色。下一个视频依旧保持原样。</li>
+    <li>不改动 YouTube 自己的字幕，不会出现重影。</li>
+    <li>无需账号，无需 API 密钥，选好语言即可使用。</li>
+  </ul>
+
+  <h2>工作方式</h2>
+  <p>字幕取自你正在观看的 YouTube 页面，翻译由 YouTube 完成。不向任何地方发送数据。没有服务器、没有统计分析、没有账号 —— 设置只保存在你的浏览器里。</p>
+
+  <h2>请注意</h2>
+  <ul>
+    <li>视频需要有字幕才能使用。若没有字幕，扩展会明确提示，而不是默默失效。</li>
+    <li>翻译质量由 YouTube 决定。自动生成的字幕翻译准确度低于上传者手写的字幕。</li>
+    <li>适用于 youtube.com 的观看页面。</li>
+    <li>界面语言：中文（简体 / 繁體）、English、한국어、Português、Español、Türkçe、Tiếng Việt、日本語、Français、العربية。</li>
+  </ul>
+
+</main>
+
+<footer class="wrap">
+  <p>
+    YouTube™ 双语字幕 Plus — 两种语言同时显示 — Greybrown ·
+    <a href="https://chromewebstore.google.com/detail/bhdmpbfdcddcjcbkmbeaioikjijbjgbp?utm_source=site_zh-cn&amp;utm_medium=site&amp;utm_campaign=intro">Chrome Web Store</a> ·
+    <a href="../#privacy" hreflang="en">隐私</a>
+  </p>
+  <p>本扩展与 YouTube 或 Google 无任何隶属、认可或赞助关系。YouTube 是 Google LLC 的商标。</p>
+</footer>
+</html>

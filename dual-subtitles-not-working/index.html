@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dual subtitles extension not working on YouTube — why, and what to use</title>
+<meta name="description" content="Dual subtitle extensions that show nothing on YouTube, or make YouTube&#x27;s own captions disappear, usually stopped working after YouTube changed how its player requests subtitles. Why it happens, what to check, and what to look for instead.">
+<link rel="canonical" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/dual-subtitles-not-working/">
+<link rel="alternate" hreflang="en" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/dual-subtitles-not-working/">
+<link rel="alternate" hreflang="ko" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/ko/dual-subtitles-not-working/">
+<link rel="alternate" hreflang="x-default" href="https://greybrownrobin-spec.github.io/yt-dual-subtitles/dual-subtitles-not-working/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f766e'/><rect x='7' y='10' width='18' height='3.4' rx='1.7' fill='%236ee7c2'/><rect x='7' y='18.6' width='18' height='3.4' rx='1.7' fill='%23fff'/></svg>">
+<style>
+:root{--bg:#ffffff;--fg:#15181d;--mu:#5b6472;--ac:#0f766e;--ac-soft:#e7f6ef;--bd:#e4e6eb;--card:#fafbfc;--code:#f3f4f6}
+@media (prefers-color-scheme: dark){:root{--bg:#0f1216;--fg:#e9edf2;--mu:#9aa5b1;--ac:#3fbfa4;--ac-soft:#10251f;--bd:#242a31;--card:#151a20;--code:#171d24}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"Noto Sans","Noto Sans KR","Noto Sans JP","Noto Sans SC","Noto Sans Arabic",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+a{color:var(--ac)}
+nav.lang{font-size:13px;color:var(--mu);padding:14px 20px 0;line-height:1.9;display:flex;flex-wrap:wrap;column-gap:14px}
+nav.lang a,nav.lang b{white-space:nowrap}
+nav.lang a{color:var(--mu);text-decoration:none}
+nav.lang a:hover{color:var(--ac);text-decoration:underline}
+nav.lang b{color:var(--fg);font-weight:600}
+header{padding:48px 0 44px;border-bottom:1px solid var(--bd)}
+h1{font-size:34px;line-height:1.25;margin:0 0 14px;letter-spacing:-.02em}
+.lede{font-size:19px;color:var(--mu);margin:0 0 28px;max-width:60ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
+.btn{display:inline-block;padding:11px 18px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--bd);color:var(--fg);background:var(--card)}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
+.meta{font-size:13px;color:var(--mu);margin-top:14px}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin:52px 0 16px;font-weight:600}
+article h2{font-size:21px;text-transform:none;letter-spacing:-.01em;color:var(--fg);margin:44px 0 12px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 14px;padding-inline-start:22px}
+li{margin:7px 0}
+.lead{font-size:18px}
+.checked{font-size:13px;color:var(--mu);margin:0 0 22px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:18px 20px;margin:16px 0}
+.fig{border:1px solid var(--bd);border-radius:10px;overflow:hidden;margin:18px 0;background:#000}
+.fig .frame{position:relative;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between;padding:14px;background:linear-gradient(160deg,#1b2430,#0b0f14)}
+.fig .line{align-self:center;max-width:88%;text-align:center;padding:5px 10px;border-radius:5px;background:rgba(0,0,0,.55);font-size:14px;line-height:1.4}
+.fig .t{color:#6ee7c2}.fig .o{color:#fff}
+.fig figcaption{font-size:13px;color:var(--mu);padding:10px 14px;background:var(--card)}
+dl{margin:0}dt{font-weight:600;margin:22px 0 4px}dd{margin:0;color:var(--mu)}
+code{background:var(--code);padding:1px 6px;border-radius:4px;font-size:14px}
+footer{margin:72px auto 48px;padding-top:22px;border-top:1px solid var(--bd);font-size:13px;color:var(--mu)}
+.langs{font-size:14px;color:var(--mu)}
+:lang(ko){word-break:keep-all;overflow-wrap:anywhere}
+@media (max-width:560px){header{padding:32px 0 32px}h1{font-size:27px}.lede{font-size:17px}}
+</style>
+
+<nav class="lang wrap"><b>English</b><a href="../ko/dual-subtitles-not-working/" hreflang="ko" lang="ko">한국어</a></nav>
+<main class="wrap">
+<article>
+  <p class="meta"><a href="../">Dual Subtitles Plus for YouTube™</a></p>
+  <h1>Dual subtitles extension not working on YouTube — why, and what to use</h1>
+  <p class="checked">Last checked: 2026-10-13</p>
+  <p class="lead">If a dual subtitles extension suddenly shows nothing on YouTube — or turns YouTube's own captions off and shows nothing in their place — the cause is often not your browser or your settings. YouTube changed how its player fetches subtitles, and a request made the old way now comes back empty. An extension that has not been updated for that change stays broken. Dual Subtitles Plus for YouTube™ takes the subtitles from the request YouTube's own player makes, so it works with the current method.</p>
+  <h2>Why it stopped working</h2>
+  <p>YouTube&#x27;s player now adds a token to its own subtitle requests. A request without that token still “succeeds”, but the reply is empty. An extension that builds its own request without the token receives nothing to display.</p>
+  <p>What you see:</p>
+  <ul>
+    <li>No subtitles appear, even on videos that clearly have them.</li>
+    <li>If the extension switched YouTube's captions off to draw its own, you are left with no captions at all. Turning the extension off brings YouTube's captions back.</li>
+  </ul>
+  <p>When this is the cause, reinstalling the extension, clearing the cache or switching browsers will not help — you get the same code back. Only an update from the developer fixes it.</p>
+  <h2>Check these first</h2>
+  <p>Not every failure is this one. Before giving up on an extension:</p>
+  <ol>
+    <li><strong>Reload the YouTube tab.</strong> After an extension installs or updates, tabs that were already open keep running the old copy until you reload them.</li>
+    <li><strong>Make sure the video has subtitles.</strong> The translation is made from the video's own subtitles. No subtitles, nothing to translate.</li>
+    <li><strong>Let the ad finish.</strong> Some extensions, including ours, pause during ads and come back when the video starts.</li>
+    <li><strong>Check the “Updated” date</strong> on the extension's Chrome Web Store page. If it is more than a year old and recent reviews say “not working”, it is unlikely to come back.</li>
+  </ol>
+  <h2>What to look for in a replacement</h2>
+  <ul>
+    <li>Updated recently, with recent reviews saying it works.</li>
+    <li>Asks for access to youtube.com only — not “all websites”.</li>
+    <li>No account and no API key to set up.</li>
+    <li>When it cannot load subtitles, it says so and gives you YouTube's captions back.</li>
+  </ul>
+  <h2>How Dual Subtitles Plus for YouTube™ handles this</h2>
+  <ul>
+    <li><strong>Uses the player's own request.</strong> It switches captions on through YouTube's caption button, picks up the request the player sends — token included — and gets the translation through that same request.</li>
+    <li><strong>A second route if the first fails.</strong> If that request cannot be picked up, it reads YouTube's transcript panel instead. That route shows the original language only, and the popup says so.</li>
+    <li><strong>Tells you what is wrong.</strong> No subtitles on the video, an ad playing, no translation for the chosen language — each shows as a message in the popup, not a blank screen.</li>
+    <li><strong>Gives YouTube's captions back.</strong> YouTube's captions are switched off only once the extension's own lines are ready. If they never are, nothing is taken away.</li>
+    <li><strong>Two lines, placed apart.</strong> Translation above the picture and original below, or both at the bottom. Languages, layout, size and colours stay set between videos.</li>
+    <li><strong>youtube.com only.</strong> No account, no API key, no server, nothing collected.</li>
+  </ul>
+  <p>No extension can promise that YouTube will not change again. What it can do is fail visibly, leave your player as it was, and get updated.</p>
+  <div class="cta"><a class="btn p" href="https://chromewebstore.google.com/detail/bhdmpbfdcddcjcbkmbeaioikjijbjgbp?utm_source=site_en&amp;utm_medium=site&amp;utm_campaign=not-working">Add to Chrome</a></div>
+  <h2>Questions</h2>
+  <dl>
+    <dt>Why did YouTube&#x27;s captions disappear when I turned on a subtitle extension?</dt>
+    <dd>The extension switched YouTube&#x27;s captions off so it could draw its own, then could not load any. Turn the extension off and YouTube&#x27;s captions return.</dd>
+
+    <dt>Does reinstalling fix a broken dual subtitles extension?</dt>
+    <dd>Not when the cause is YouTube&#x27;s change. Reinstalling gives you the same version. Only an update from the developer fixes it.</dd>
+
+    <dt>Does Dual Subtitles Plus work on Netflix?</dt>
+    <dd>Not at the moment. It currently runs on YouTube watch pages only.</dd>
+  </dl>
+</article>
+</main>
+
+<footer class="wrap">
+  <p><a href="../">Dual Subtitles Plus for YouTube™</a> — Greybrown</p>
+  <p>Not affiliated with, endorsed by or sponsored by YouTube or Google. YouTube is a trademark of Google LLC.</p>
+</footer>
+</html>
