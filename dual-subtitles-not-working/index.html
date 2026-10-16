@@ -29,7 +29,8 @@ h1{font-size:34px;line-height:1.25;margin:0 0 14px;letter-spacing:-.02em}
 .cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
 .btn{display:inline-block;padding:11px 18px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--bd);color:var(--fg);background:var(--card)}
 .btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
-.eyebrow{font-size:16px;font-weight:700;color:var(--ac);margin:0 0 10px;letter-spacing:-.01em}
+.eyebrow{font-size:24px;line-height:1.3;font-weight:700;color:var(--ac);margin:0 0 12px;letter-spacing:-.015em}
+@media (max-width:560px){.eyebrow{font-size:20px}}
 .meta{font-size:13px;color:var(--mu);margin-top:14px}
 h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin:52px 0 16px;font-weight:600}
 article h2{font-size:21px;text-transform:none;letter-spacing:-.01em;color:var(--fg);margin:44px 0 12px}
@@ -64,10 +65,10 @@ footer{margin:72px auto 48px;padding-top:22px;border-top:1px solid var(--bd);fon
 <nav class="lang wrap"><b>English</b><a href="../ko/dual-subtitles-not-working/" hreflang="ko" lang="ko">한국어</a></nav>
 <main class="wrap">
 <article>
-  <p class="meta"><a href="../">Dual Subtitles Plus for YouTube™</a></p>
+  <p class="meta"><a href="../">Dual Subtitles Plus - YouTube &amp; Netflix</a></p>
   <h1>Dual subtitles extension not working on YouTube — why, and what to use</h1>
-  <p class="checked">Last checked: 2026-10-13</p>
-  <p class="lead">If a dual subtitles extension suddenly shows nothing on YouTube — or turns YouTube's own captions off and shows nothing in their place — the cause is often not your browser or your settings. YouTube changed how its player fetches subtitles, and a request made the old way now comes back empty. An extension that has not been updated for that change stays broken. Dual Subtitles Plus for YouTube™ takes the subtitles from the request YouTube's own player makes, so it works with the current method.</p>
+  <p class="checked">Last checked: 2026-10-16</p>
+  <p class="lead">If a dual subtitles extension suddenly shows nothing on YouTube — or turns YouTube's own captions off and shows nothing in their place — the cause is often not your browser or your settings. YouTube changed how its player fetches subtitles, and a request made the old way now comes back empty. An extension that has not been updated for that change stays broken. Dual Subtitles Plus takes the subtitles from the request YouTube's own player makes, so it works with the current method.</p>
   <h2>Why it stopped working</h2>
   <p>YouTube&#x27;s player now adds a token to its own subtitle requests. A request without that token still “succeeds”, but the reply is empty. An extension that builds its own request without the token receives nothing to display.</p>
   <p>What you see:</p>
@@ -87,18 +88,18 @@ footer{margin:72px auto 48px;padding-top:22px;border-top:1px solid var(--bd);fon
   <h2>What to look for in a replacement</h2>
   <ul>
     <li>Updated recently, with recent reviews saying it works.</li>
-    <li>Asks for access to youtube.com only — not “all websites”.</li>
+    <li>Asks for access only to the sites it works on — not “all websites”.</li>
     <li>No account and no API key to set up.</li>
     <li>When it cannot load subtitles, it says so and gives you YouTube's captions back.</li>
   </ul>
-  <h2>How Dual Subtitles Plus for YouTube™ handles this</h2>
+  <h2>How Dual Subtitles Plus handles this on YouTube</h2>
   <ul>
     <li><strong>Uses the player's own request.</strong> It switches captions on through YouTube's caption button, picks up the request the player sends — token included — and gets the translation through that same request.</li>
     <li><strong>A second route if the first fails.</strong> If that request cannot be picked up, it reads YouTube's transcript panel instead. That route shows the original language only, and the popup says so.</li>
     <li><strong>Tells you what is wrong.</strong> No subtitles on the video, an ad playing, no translation for the chosen language — each shows as a message in the popup, not a blank screen.</li>
     <li><strong>Gives YouTube's captions back.</strong> YouTube's captions are switched off only once the extension's own lines are ready. If they never are, nothing is taken away.</li>
-    <li><strong>Two lines, placed apart.</strong> Translation above the picture and original below, or both at the bottom. Languages, layout, size and colours stay set between videos.</li>
-    <li><strong>youtube.com only.</strong> No account, no API key, no server, nothing collected.</li>
+    <li><strong>Two lines, placed apart.</strong> Translation at the top of the video and original at the bottom, or both at the bottom. Languages, layout, size and colours stay set between videos.</li>
+    <li><strong>Runs on YouTube; Netflix only after you turn it on.</strong> No access to other sites. No account, no API key, no server, nothing collected.</li>
   </ul>
   <p>No extension can promise that YouTube will not change again. What it can do is fail visibly, leave your player as it was, and get updated.</p>
   <div class="cta"><a class="btn p" href="https://chromewebstore.google.com/detail/bhdmpbfdcddcjcbkmbeaioikjijbjgbp?utm_source=site_en&amp;utm_medium=site&amp;utm_campaign=not-working">Add to Chrome</a></div>
@@ -111,19 +112,19 @@ footer{margin:72px auto 48px;padding-top:22px;border-top:1px solid var(--bd);fon
     <dd>Not when the cause is YouTube&#x27;s change. Reinstalling gives you the same version. Only an update from the developer fixes it.</dd>
 
     <dt>Does Dual Subtitles Plus work on Netflix?</dt>
-    <dd>Not at the moment. It currently runs on YouTube watch pages only.</dd>
+    <dd>Yes. Open the popup on a Netflix tab, press “Turn on for Netflix” and allow access — once. Netflix&#x27;s own subtitles are used where they exist; otherwise Chrome translates on your device, where the language is supported.</dd>
   </dl>
 </article>
 </main>
 
 <footer class="wrap">
-  <p><a href="../">Dual Subtitles Plus for YouTube™</a> — Greybrown</p>
-  <p>Not affiliated with, endorsed by or sponsored by YouTube or Google. YouTube is a trademark of Google LLC.</p>
+  <p><a href="../">Dual Subtitles Plus - YouTube &amp; Netflix</a> — Greybrown</p>
+  <p>Not affiliated with, endorsed by or sponsored by YouTube, Google or Netflix.</p>
 </footer>
 <script>
 function dsTrack(n,p){if(window.gtag){p=p||{};p.page_lang=document.documentElement.lang;p.page_type=document.body.dataset.page;p.transport_type='beacon';gtag('event',n,p);}}
 document.addEventListener('click',function(ev){
-var s=ev.target.closest('a[href*="chromewebstore.google.com"]');if(s){dsTrack('store_click');return;}
+var s=ev.target.closest('a[href*="chromewebstore.google.com"]');if(s){dsTrack('store_click',{link_position:s.closest('header')?'header':s.closest('footer')?'footer':'content'});return;}
 var a=ev.target.closest('a[data-yt]');if(!a)return;ev.preventDefault();dsTrack('video_play',{video_id:a.dataset.yt});
 var box=document.createElement('div');box.className='video';var f=document.createElement('iframe');
 f.src='https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';

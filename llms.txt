@@ -1,13 +1,13 @@
-# Dual Subtitles Plus for YouTube™
+# Dual Subtitles Plus - YouTube & Netflix
 
-> A Chrome extension that shows two subtitle languages on YouTube at once — the video's own subtitles and YouTube's translation of them — with the translation above the picture and the original below, or both at the bottom.
+> Dual subtitles for YouTube and Netflix. Translation on top, original below. Customize colors, position, and remember your languages.
 
-Published by Greybrown. Runs on youtube.com watch pages only.
+Published by Greybrown. Runs on YouTube; on Netflix only after the user turns it on from the popup (“Turn on for Netflix”).
 No account, no API key, no server; settings stay in the browser.
-Permissions: storage; host access to youtube.com only.
-Translation is YouTube's own; subtitle languages are whatever YouTube offers for each video.
+Permissions: storage, scripting, activeTab; host access to youtube.com; www.netflix.com is an optional permission, requested only when the user turns Netflix on.
+Translation: on YouTube, YouTube's own translation. On Netflix, Netflix's subtitles in the chosen language when available; otherwise Chrome's built-in on-device translator, where the language is supported (39 languages).
 Interface languages (11): English, Korean, Japanese, Chinese (Simplified), Chinese (Traditional), Spanish, Portuguese (Brazil), French, Turkish, Vietnamese, Arabic.
-Not affiliated with YouTube or Google.
+Not affiliated with YouTube, Google or Netflix.
 
 ## Pages
 
